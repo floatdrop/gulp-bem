@@ -1,0 +1,27 @@
+{
+  "name": "gulp-bem",
+  "version": "0.0.0",
+  "description": "BEM toolset for gulp",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha -R spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/floatdrop/gulp-bem.git"
+  },
+  "keywords": [
+    "BEM",
+    "gulp",
+    "gulpfriendly"
+  ],
+  "author": "Vsevolod Strukchinsky <floatdrop@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/floatdrop/gulp-bem/issues"
+  },
+  "homepage": "https://github.com/floatdrop/gulp-bem",
+  "devDependencies": {
+    "mocha": "^1.21.4"
+  }
+}
