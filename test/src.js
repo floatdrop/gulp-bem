@@ -4,7 +4,7 @@ var src = require('../src.js');
 var path = require('path');
 require('should');
 
-var simpleBundle = path.join(__dirname, 'fixtures/single-bundle/desktop.bundle/index');
+var simpleBundle = path.join(__dirname, 'fixtures/single.bundle/index');
 
 describe('bem.src', function () {
     it('should get files from deps', function (done) {

@@ -7,7 +7,7 @@ See [gulp-bem-stub](https://github.com/matmuchrapna/gulp-bem-stub) as example of
 
 ## API
 
-### bem.tree()
+### bem.tree([levels])
 
 This method constructs dependency tree of your BEM project by consuming stream of `*.decl.js` files. All further work is happens on this tree.
 
@@ -17,7 +17,9 @@ var bem = require('gulp-bem');
 var tree = gulp.src('**/*.deps.js').pipe(bem.tree())
 ```
 
-It will return closed Stream with additional methods.
+It will return passThrough Stream with additional method.
+
+__Note:__ You can pass array of levels to tree, but we still don't sure this is necessary (to be clarified later).
 
 ### tree.deps(path)
 

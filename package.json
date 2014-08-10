@@ -23,9 +23,11 @@
   "homepage": "https://github.com/floatdrop/gulp-bem",
   "devDependencies": {
     "mocha": "^1.21.4",
-    "should": "^4.0.4"
+    "should": "^4.0.4",
+    "sinon": "^1.10.3"
   },
   "dependencies": {
+    "object-assign": "^0.3.1",
     "through2": "^0.6.0",
     "vinyl-fs": "^0.3.6"
   }
