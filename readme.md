@@ -68,17 +68,15 @@ Pretty easy, eh, mate? More detailed example can be found in [gulp-bem-stub](htt
 There are bunch of simple variables to substitute parts of deps object properties:
 
  * `block` - block name
- * `bmod` - block modificator name
- * `bvalue` - block modificator value
  * `elem` - element name
- * `emod` - element modificator
- * `evalue` - element modificator value
+ * `mod` - modificator
+ * `value` - modificator value
 
 And there is `bem` variable for substitution valid BEM identifier. It composed by following rules:
 
  1. First always goes `block` name
  2. If there are no `elem` then join modifier and modifier value 
- 3. Else join `elem` and join element modifier and element modifier value
+ 3. Else join `elem` and join modifier and modifier value
 
 ## License
 
