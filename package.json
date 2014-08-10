@@ -27,6 +27,7 @@
     "sinon": "^1.10.3"
   },
   "dependencies": {
+    "decl-graph": "0.0.0",
     "object-assign": "^0.3.1",
     "through2": "^0.6.0",
     "vinyl-fs": "^0.3.6"

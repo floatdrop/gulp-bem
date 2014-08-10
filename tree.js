@@ -1,5 +1,5 @@
 var through             = require('through2');
-var BEMGraph            = require('bem-graph');
+var DeclGraph           = require('decl-graph');
 var runInThisContext    = require('vm').runInThisContext;
 var assign              = require('object-assign');
 var pathToBemProperties = require('./path-to-bem-properties.js');
@@ -20,7 +20,7 @@ function tree () {
 
     stream.on('finish', function () { stream.finished = true; });
 
-    stream.graph = new BEMGraph();
+    stream.graph = new DeclGraph();
     stream.deps = function (path) {
         var output = through.obj();
 
