@@ -9,7 +9,7 @@ See [gulp-bem-stub](https://github.com/matmuchrapna/gulp-bem-stub) as example of
 
 ### bem.tree([levels])
 
-This method constructs dependency tree of your BEM project by consuming stream of `*.decl.js` files. All further work is happens on this tree.
+This method constructs dependency tree of your BEM project by consuming stream of `*.deps.js` files. All further work is happens on this tree.
 
 ```js
 var gulp = require('gulp');
@@ -23,7 +23,7 @@ __Note:__ You can pass array of levels to tree, but we still don't sure this is 
 
 ### tree.deps(path)
 
-After you got your tree - you can call this method to get __ordered__ deps objects, that should be used to build CSS/JS/etc of BEM project. Order is determinated by `shouldDeps` and `mustDeps` in `*.decl.js` files. You can read about [`*.deps.js` syntax](http://bem.info/tools/bem/bem-tools/depsjs/) on BEM site.
+After you got your tree - you can call this method to get __ordered__ deps objects, that should be used to build CSS/JS/etc of BEM project. Order is determinated by `shouldDeps` and `mustDeps` in `*.deps.js` files. You can read about [`*.deps.js` syntax](http://bem.info/tools/bem/bem-tools/depsjs/) on BEM site.
 
 ```js
 // suppose you have desktop.bundles/index as entry point of index page

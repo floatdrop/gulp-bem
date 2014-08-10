@@ -20,7 +20,7 @@ describe('bem.tree', function () {
             .on('data', done.bind(null, null));
     });
 
-    it('should parse decl files', function (done) {
+    it('should parse deps files', function (done) {
         src(throwBundle)
             .pipe(bemTree())
             .on('error', function (err) {
@@ -38,10 +38,10 @@ describe('bem.tree', function () {
         setTimeout(done, 10);
     });
 
-    it('should call addDecl on graph', function (done) {
+    it('should call addDep on graph', function (done) {
         var tree = bemTree();
-        sinon.stub(tree.graph, 'addDecl', function (decl) {
-            decl.should.have.property('block', 'index');
+        sinon.stub(tree.graph, 'addDep', function (dep) {
+            dep.should.have.property('block', 'index');
             done();
         });
         src(depsBundle)
