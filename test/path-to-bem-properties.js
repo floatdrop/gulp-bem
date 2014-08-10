@@ -21,4 +21,13 @@ describe('path-to-bem-properties', function () {
         p.should.have.property('block', 'block');
         p.should.have.property('mod', 'mod');
     });
+
+    it('should set level to empty string if not present', function () {
+        // Because all paths should begins with '/' and 'block' will be after ''
+        props('/block/index.js').should.have.property('level', '');
+    });
+
+    it('should set level to block parent', function () {
+        props('/level/block/index.js').should.have.property('level', 'level');
+    });
 });
