@@ -53,7 +53,7 @@ This method consumes stream of block definitions and searches files by glob patt
 
 All files in blocks, that are described by block definition, following some convention about naming. Often CSS file have name of block and added `.css` suffix. If definition describes block with modificators, then it can be `block_mod_value.css`. You can read about [bem-naming](http://bem.info/tools/bem/bem-naming/) and [directory structure](http://bem.info/method/filesystem/) at [BEM site](http://bem.info), if there are questions about it.
 
-To provide this name generation `bem.src` will substitute (with [supplant](http://javascript.crockford.com/remedial.html) syntax) [special variables](https://github.com/floatdrop/gulp-bem#bemsrc-variables).
+To provide this name generation `bem.src` will substitute (with [supplant](http://javascript.crockford.com/remedial.html) syntax) all properties in block definition.
 
 In conclusion, if you need to get all css files, then write:
 
@@ -77,10 +77,6 @@ deps.src('{bem}.css')
 ```
 
 Pretty easy, eh, mate? More detailed example can be found in [gulp-bem-stub](https://github.com/matmuchrapna/gulp-bem-stub). Take a look!
-
-## bem.src variables
-
-This method will substitute all properties from block definition to corresponding place in glob (between `{` and `}`).
 
 ## Block definition
 
