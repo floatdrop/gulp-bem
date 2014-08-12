@@ -15,6 +15,7 @@ You can read about block definition [here](https://github.com/floatdrop/gulp-bem
 
 ###### directory
 Type: `string`  
+Default: `process.cwd()`
 
 Optional path to directory, which contains levels of declaration.
 
