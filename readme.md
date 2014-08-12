@@ -9,7 +9,7 @@ See [gulp-bem-stub](https://github.com/matmuchrapna/gulp-bem-stub) as example of
 
 ### bem.blocks([levels])
 
-Emits all blocks under. It will add all blocks from levels directories (or current directory). You can read about BEM object [here](https://github.com/floatdrop/gulp-bem#BEM-object).
+Emits all blocks under. It will add all blocks from levels directories (or current directory). You can read about BEM object [here](https://github.com/floatdrop/gulp-bem#bem-object).
 
 ###### levels
 Type: `String` or `Array`
