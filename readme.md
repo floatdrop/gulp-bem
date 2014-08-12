@@ -7,22 +7,17 @@ See [gulp-bem-stub](https://github.com/matmuchrapna/gulp-bem-stub) as example of
 
 ## API
 
-### bem.blocks([directory, levels])
+### bem.blocks([levels])
 
-Emits all blocks under `directory`. It will add all blocks from levels directories (or current directory).
+Emits all blocks under. It will add all blocks from levels directories (or current directory).
 
 You can read about block definition [here](https://github.com/floatdrop/gulp-bem#block-definition).
 
-###### directory
-Type: `string`  
+###### levels
+Type: `String` or `Array`
 Default: `process.cwd()`
 
-Optional path to directory, which contains levels of declaration.
-
-###### levels
-Type: `Array`
-
-Optional Array of levels.
+Optional level or list of levels to load blocks from. If omitted - current directory is used as default level.
 
 ### bem.tree()
 
@@ -34,7 +29,7 @@ var bem = require('gulp-bem');
 var tree = bem.blocks().pipe(bem.tree())
 ```
 
-It will return passThrough Stream with additional method.
+It will return  __non-mutable__ passThrough Stream with additional method. On each new pipe call tree will be set as parent to empty tree.
 
 ### tree.deps(path)
 
@@ -80,7 +75,17 @@ Pretty easy, eh, mate? More detailed example can be found in [gulp-bem-stub](htt
 
 ## Block definition
 
-TODO
+Block definition object is just an abstraction. Each block definition object encapsulate next properties:
+
+ * `path` - full path to directory, that contains block files
+ * `level` - level of definition of current block
+ * `block` - name of the block
+ * `elem` - name of the element
+ * `mod` - name of the modificator
+ * `value` - value of the modificator
+ * `bem` - valid BEM identifier, composed from `block`, `elem`, `mod` and `value`
+
+Besides this properties object can contain helper methods, but for know it does not.
 
 ## License
 
