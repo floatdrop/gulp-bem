@@ -5,11 +5,9 @@ var assign              = require('object-assign');
 var pathToBemProperties = require('./path-to-bem-properties.js');
 
 function tree () {
-    function addToTree (file, enc, callback) {
+    function addToTree (bemObject, enc, callback) {
         try {
-            var depFile = runInThisContext(file.contents, { filename: file.path });
-            assign(depFile, pathToBemProperties(file.path));
-            this.graph.add(depFile);
+            this.graph.add(bemObject);
             callback(null, file);
         } catch (err) {
             callback(err, file);
