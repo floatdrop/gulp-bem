@@ -24,7 +24,7 @@ Constructs dependency tree of your BEM project by consuming stream of BEM object
 ```js
 var gulp = require('gulp');
 var bem = require('gulp-bem');
-var tree = bem.blocks().pipe(bem.tree())
+var tree = bem.blocks().pipe(bem.tree());
 ```
 
 It will return  __non-mutable__ passThrough Stream with additional method. On each new pipe call tree will be set as parent to empty tree.
@@ -61,7 +61,7 @@ Whole code to build CSS file will look like this:
 var gulp = require('gulp');
 var bem = require('gulp-bem');
 var concat = require('gulp-concat');
-var tree = bem.blocks().pipe(bem.tree())
+var tree = bem.blocks().pipe(bem.tree());
 
 var deps = tree.deps('desktop.bundles/index');
 deps.src('{bem}.css')
@@ -77,8 +77,8 @@ BEM object is just an abstraction. Each object contains next properties:
 
  * `path` - full path to directory, that contains block files
  * `level` - level of definition of current block
- * `requires` - array of BEM blocks, that will be included before current block
- * `expects` - array of BEM blocks, that should be included after current block
+ * `require` - array of BEM blocks, that will be included before current block
+ * `expect` - array of BEM blocks, that should be included after current block
  * `block` - name of the block
  * `elem` - name of the element
  * `mod` - name of the modificator
