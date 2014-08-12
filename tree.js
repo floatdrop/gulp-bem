@@ -9,7 +9,7 @@ function tree () {
         try {
             var depFile = runInThisContext(file.contents, { filename: file.path });
             assign(depFile, pathToBemProperties(file.path));
-            this.graph.addDep(depFile);
+            this.graph.add(depFile);
             callback(null, file);
         } catch (err) {
             callback(err, file);

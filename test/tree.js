@@ -38,9 +38,9 @@ describe('bem.tree', function () {
         setTimeout(done, 10);
     });
 
-    it('should call addDep on graph', function (done) {
+    it('should call add on graph', function (done) {
         var tree = bemTree();
-        sinon.stub(tree.graph, 'addDep', function (dep) {
+        sinon.stub(tree.graph, 'add', function (dep) {
             dep.should.have.property('block', 'index');
             done();
         });
