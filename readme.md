@@ -27,7 +27,7 @@ var bem = require('gulp-bem');
 var tree = bem.blocks().pipe(bem.tree());
 ```
 
-It will return  __non-mutable__ passThrough Stream with additional method. On each new pipe call tree will be set as parent to empty tree.
+It will return  __immutable__ passThrough Stream with additional method. On each new pipe call tree will be set as parent to empty tree.
 
 ### tree.deps(path)
 
