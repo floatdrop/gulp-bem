@@ -1,16 +1,13 @@
 var through             = require('through2');
 var DepsGraph           = require('deps-graph');
-var runInThisContext    = require('vm').runInThisContext;
-var assign              = require('object-assign');
-var pathToBemProperties = require('./path-to-bem-properties.js');
 
 function tree () {
     function addToTree (bemObject, enc, callback) {
         try {
             this.graph.add(bemObject);
-            callback(null, file);
+            callback(null, bemObject);
         } catch (err) {
-            callback(err, file);
+            callback(err, bemObject);
         }
     }
 
