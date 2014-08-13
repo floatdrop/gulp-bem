@@ -9,7 +9,7 @@ See [gulp-bem-stub](https://github.com/matmuchrapna/gulp-bem-stub) as example of
 
 ### bem.blocks([levels])
 
-It will emit all blocks from levels directories as [BEM objects](https://github.com/floatdrop/gulp-bem#bem-object). Level is a directory, that contains blocks.
+It will emit all blocks from levels directories as [BEM objects](https://github.com/floatdrop/bem-object). Level is a directory, that contains blocks.
 
 ###### levels
 Type: `String` or `Array`
@@ -70,22 +70,6 @@ deps.src('{bem}.css')
 ```
 
 Pretty easy, eh, mate? More detailed example can be found in [gulp-bem-stub](https://github.com/matmuchrapna/gulp-bem-stub). Take a look!
-
-## BEM object
-
-BEM object is just an abstraction. Each object contains next properties:
-
- * `path` - full path to directory, that contains block files
- * `level` - level of definition of current block
- * `require` - array of BEM blocks, that will be included before current block
- * `expect` - array of BEM blocks, that should be included after current block
- * `block` - name of the block
- * `elem` - name of the element
- * `mod` - name of the modificator
- * `value` - value of the modificator
- * `bem` - valid BEM identifier, composed from `block`, `elem`, `mod` and `value`
-
-Besides this properties object can contain helper methods, but for know it does not.
 
 ## License
 
