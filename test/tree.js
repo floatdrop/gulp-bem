@@ -3,11 +3,9 @@
 var blocks      = require('../blocks.js');
 var bemTree     = require('../tree.js');
 var path        = require('path');
-var should      = require('should');
 var sinon       = require('sinon');
 
 var depsBundle  = path.join(__dirname, 'fixtures/deps.bundle');
-var throwBundle = path.join(__dirname, 'fixtures/throw.bundle');
 
 describe('bem.tree', function () {
     it('should return object with deps function', function () {
