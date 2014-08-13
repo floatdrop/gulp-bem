@@ -1,13 +1,13 @@
 /* global describe, it */
 
-var src         = require('vinyl-fs').src;
+var blocks      = require('../blocks.js');
 var bemTree     = require('../tree.js');
 var path        = require('path');
 var should      = require('should');
 var sinon       = require('sinon');
 
-var depsBundle  = path.join(__dirname, 'fixtures/deps.bundle/**/*.deps.js');
-var throwBundle = path.join(__dirname, 'fixtures/throw.bundle/**/*.deps.js');
+var depsBundle  = path.join(__dirname, 'fixtures/deps.bundle');
+var throwBundle = path.join(__dirname, 'fixtures/throw.bundle');
 
 describe('bem.tree', function () {
     it('should return object with deps function', function () {
@@ -15,20 +15,9 @@ describe('bem.tree', function () {
     });
 
     it('should be passThrough stream', function (done) {
-        src(depsBundle)
+        blocks(depsBundle)
             .pipe(bemTree())
             .on('data', done.bind(null, null));
-    });
-
-    it('should parse deps files', function (done) {
-        src(throwBundle)
-            .pipe(bemTree())
-            .on('error', function (err) {
-                should.exist(err);
-                err.message.should.eql('Bang!');
-                done();
-            })
-            .on('finish', done.bind(null, new Error('Did not emit error event')));
     });
 
     it('should emit deps only when tree is ready', function (done) {
@@ -44,7 +33,7 @@ describe('bem.tree', function () {
             dep.should.have.property('block', 'index');
             done();
         });
-        src(depsBundle)
+        blocks(depsBundle)
             .pipe(tree);
     });
 
@@ -54,7 +43,7 @@ describe('bem.tree', function () {
             return [1];
         });
 
-        src(depsBundle)
+        blocks(depsBundle)
             .pipe(tree);
 
         tree.deps()

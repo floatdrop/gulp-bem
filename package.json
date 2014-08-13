@@ -28,7 +28,10 @@
     "stream-assert": "^0.1.0"
   },
   "dependencies": {
+    "bem-object": "0.0.2",
     "deps-graph": "0.0.2",
+    "stream-dirs": "0.0.0",
+    "stream-combiner": "^0.2.1",
     "through2": "^0.6.0",
     "vinyl-fs": "^0.3.6"
   }
