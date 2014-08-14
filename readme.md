@@ -1,4 +1,4 @@
-# gulp-bem [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][depstat-image]][depstat-url]
+# gulp-bem [![NPM version][npm-image]][npm-url] [![Gitter chat](https://badges.gitter.im/floatdrop/gulp-bem.png)](https://gitter.im/floatdrop/gulp-bem) [![Build Status][travis-image]][travis-url] [![Gitter chat](https://badges.gitter.im/floatdrop/gulp-bem.png)](https://gitter.im/floatdrop/gulp-bem)
 > Toolset for building bem project with gulp
 
 ## Usage
