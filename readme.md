@@ -1,6 +1,10 @@
 # gulp-bem [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Gitter chat](https://badges.gitter.im/floatdrop/gulp-bem.png)](https://gitter.im/floatdrop/gulp-bem)
 > Toolset for building bem project with gulp
 
+#### Disclaimer
+
+This is not yet functional version of gulp plugin. We are working on [deps-graph](https://github.com/floatdrop/deps-graph) package, that incapsulates all the logic that creates `tree.deps`.
+
 ## Usage
 
 Building CSS file for `index` block:
