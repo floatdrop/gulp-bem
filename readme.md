@@ -12,8 +12,8 @@ See [gulp-bem-stub](https://github.com/matmuchrapna/gulp-bem-stub) as example of
 It will emit all [BEM objects](https://github.com/floatdrop/bem-object) from levels directories.
 
 ###### levels
-Type: `String` or `Array`
-Default: `process.cwd()`
+Type: `String` or `Array`  
+Default: `process.cwd()`  
 
 Optional level or list of levels to load BEM objects from. If omitted - current directory is used as default level.
 
