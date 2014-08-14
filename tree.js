@@ -1,7 +1,11 @@
-var through             = require('through2');
-var DepsGraph           = require('deps-graph');
+var through     = require('through2');
+var DepsGraph   = require('deps-graph');
+var streamArray = require('stream-array');
+var after       = require('after-event');
 
 function tree () {
+    var stream = through.obj(addToTree);
+
     function addToTree (bemObject, enc, callback) {
         try {
             this.graph.add(bemObject);
@@ -11,30 +15,15 @@ function tree () {
         }
     }
 
-    var stream = through.obj(addToTree);
-
-    stream.on('finish', function () { stream.finished = true; });
-
-    stream.graph = new DepsGraph();
+    var graph = stream.graph = new DepsGraph();
     stream.deps = function (path) {
         var output = through.obj();
-
-        function writeDeps() {
-            stream.graph.dependencies(path).forEach(function (dep) {
-                output.write(dep);
-            });
-            output.end();
-        }
-
-        if (stream.finished) {
-            writeDeps();
-        } else {
-            stream.on('finish', writeDeps);
-        }
-
+        after(stream, 'finish', function () {
+            streamArray(graph.dependencies(path)).pipe(output);
+        });
         return output;
-
     };
+
     return stream;
 }
 
