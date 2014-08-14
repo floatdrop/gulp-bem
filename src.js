@@ -3,20 +3,20 @@ var supplant = require('./supplant.js');
 var vfs = require('vinyl-fs');
 var path = require('path');
 
-function prependPath (dep) {
+function prependPath(dep) {
     return function (str) {
         return path.join(dep.path, str);
     };
 }
 
-function src (glob, options) {
+function src(glob, options) {
     if (!isValidGlob(glob)) {
         throw new Error('Invalid glob argument: ' + glob);
     }
 
     if (typeof glob === 'string') { glob = [ glob ]; }
 
-    function findFile (dep, enc, cb) {
+    function findFile(dep, enc, cb) {
         var newGlobs = glob
             .map(supplant(dep))
             .map(prependPath(dep));

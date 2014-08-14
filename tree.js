@@ -3,10 +3,10 @@ var DepsGraph   = require('deps-graph');
 var streamArray = require('stream-array');
 var after       = require('after-event');
 
-function tree () {
+function tree() {
     var stream = through.obj(addToTree);
 
-    function addToTree (bemObject, enc, callback) {
+    function addToTree(bemObject, enc, callback) {
         try {
             this.graph.add(bemObject);
             callback(null, bemObject);

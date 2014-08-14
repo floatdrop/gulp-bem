@@ -9,7 +9,7 @@ function createBemObject() {
     });
 }
 
-function objects (levels) {
+function objects(levels) {
     if (typeof levels === 'string') { levels = [ levels ]; }
     if (!levels) { levels = [process.cwd()]; }
     var streams = levels.map(readdir);

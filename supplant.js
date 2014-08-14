@@ -8,7 +8,7 @@
     supplant(s, {prop: 'index'}); // index.css
 */
 
-module.exports = function supplant (o) {
+module.exports = function supplant(o) {
     return function (str) {
         return str.replace(/{([^{}]*)}/g,
             function (a, b) {
