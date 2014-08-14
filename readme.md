@@ -22,7 +22,6 @@ Optional level or list of levels to load BEM objects from. If omitted - current 
 Constructs dependency tree of your BEM project by consuming stream of BEM objects. All further work is happens on this tree.
 
 ```js
-var gulp    = require('gulp');
 var bem     = require('gulp-bem');
 
 var tree = bem.objects().pipe(bem.tree());
