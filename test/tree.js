@@ -1,6 +1,6 @@
 /* global describe, it */
 
-var blocks      = require('../blocks.js');
+var objects      = require('../objects.js');
 var bemTree     = require('../tree.js');
 var path        = require('path');
 var sinon       = require('sinon');
@@ -13,7 +13,7 @@ describe('bem.tree', function () {
     });
 
     it('should be passThrough stream', function (done) {
-        blocks(depsBundle)
+        objects(depsBundle)
             .pipe(bemTree())
             .on('data', done.bind(null, null));
     });
@@ -31,7 +31,7 @@ describe('bem.tree', function () {
             dep.should.have.property('block', 'index');
             done();
         });
-        blocks(depsBundle)
+        objects(depsBundle)
             .pipe(tree);
     });
 
@@ -41,7 +41,7 @@ describe('bem.tree', function () {
             return [1];
         });
 
-        blocks(depsBundle)
+        objects(depsBundle)
             .pipe(tree);
 
         tree.deps()

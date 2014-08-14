@@ -9,11 +9,11 @@ function createBemObject() {
     });
 }
 
-function blocks (levels) {
+function objects (levels) {
     if (typeof levels === 'string') { levels = [ levels ]; }
     if (!levels) { levels = [process.cwd()]; }
     var streams = levels.map(readdir);
     return join(streams).pipe(createBemObject());
 }
 
-module.exports = blocks;
+module.exports = objects;

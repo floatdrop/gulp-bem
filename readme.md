@@ -7,15 +7,15 @@ See [gulp-bem-stub](https://github.com/matmuchrapna/gulp-bem-stub) as example of
 
 ## API
 
-### bem.blocks([levels])
+### bem.objects([levels])
 
-It will emit all blocks from levels directories as [BEM objects](https://github.com/floatdrop/bem-object). Level is a directory, that contains blocks.
+It will emit all [BEM objects](https://github.com/floatdrop/bem-object) from levels directories.
 
 ###### levels
 Type: `String` or `Array`
 Default: `process.cwd()`
 
-Optional level or list of levels to load blocks from. If omitted - current directory is used as default level.
+Optional level or list of levels to load BEM objects from. If omitted - current directory is used as default level.
 
 ### bem.tree()
 
@@ -24,14 +24,14 @@ Constructs dependency tree of your BEM project by consuming stream of BEM object
 ```js
 var gulp = require('gulp');
 var bem = require('gulp-bem');
-var tree = bem.blocks().pipe(bem.tree());
+var tree = bem.objects().pipe(bem.tree());
 ```
 
 It will return  __immutable__ passThrough Stream with additional method. On each new pipe call tree will be set as parent to empty tree.
 
 ### tree.deps(path)
 
-After you got your tree - you can call this method to get __ordered__ BEM objects, that should be used to build CSS/JS/etc of BEM project. Order is determinated by `shouldDeps` and `mustDeps` in `*.deps.js` files. You can read about [`*.deps.js` syntax](http://bem.info/tools/bem/bem-tools/depsjs/) on BEM site.
+After you got your tree - you can call this method to get __ordered__ BEM objects, that should be used to build CSS/JS/etc of BEM project. Order is determinated by `require` and `expect` properties in BEM object.
 
 ```js
 // suppose you have desktop.bundles/index as entry point of index page
@@ -61,7 +61,7 @@ Whole code to build CSS file will look like this:
 var gulp = require('gulp');
 var bem = require('gulp-bem');
 var concat = require('gulp-concat');
-var tree = bem.blocks().pipe(bem.tree());
+var tree = bem.objects().pipe(bem.tree());
 
 var deps = tree.deps('desktop.bundles/index');
 deps.src('{bem}.css')
