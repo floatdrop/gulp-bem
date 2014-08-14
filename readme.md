@@ -79,6 +79,10 @@ Type: `String` or `Array`
 
 Same as in [gulp.src](https://github.com/gulpjs/gulp/blob/master/docs/API.md#gulpsrcglobs-options) method, but with some interpolation happening. To provide BEM name generation - `bem.src` will substitute (with [supplant](http://javascript.crockford.com/remedial.html) syntax) all properties in BEM object.
 
+## Questions
+
+If you have questions about BEM methodology itself - you can ask them at [![Gitter chat](https://badges.gitter.im/bem/talk.png)](https://gitter.im/bem/talk)
+
 ## License
 
 MIT (c) 2014 Vsevolod Strukchinsky
