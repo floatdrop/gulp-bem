@@ -46,7 +46,7 @@ It will return  __immutable__ passThrough Stream with additional method. On each
 
 ### tree.deps(path)
 
-After you got your tree - you can call this method to get __ordered__ BEM objects, that should be used to build CSS/JS/etc of BEM project. Order is determinated by `require` and `expect` properties in BEM object.
+After you got your tree - you can call this method to get __ordered__ BEM objects, that should be used to build CSS/JS/etc of BEM project. Order is determinated by `require`, `expect` and `exclude` properties in BEM object.
 
 ```js
 // suppose you have desktop.bundles/index as entry point of index page
