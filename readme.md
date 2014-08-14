@@ -45,23 +45,23 @@ Type: `String`
 
 ### bem.src(glob)
 
-This method consumes stream of BEM objects and searches files by glob pattern in them. Pattern is the same as in [gulp.src](https://github.com/gulpjs/gulp/blob/master/docs/API.md#gulpsrcglobs-options) method, but with some interpolation happening.
+This method consumes stream of BEM objects and searches files by glob pattern in them.
 
 All files, that contained under BEM object path, following some convention about naming. Often CSS file have name of block and added `.css` suffix. If BEM object describes block with modificators, then it can be `block_mod_value.css`. You can read about [bem-naming](http://bem.info/tools/bem/bem-naming/) and [directory structure](http://bem.info/method/filesystem/) at [BEM site](http://bem.info), if there are questions about it.
 
-To provide this name generation `bem.src` will substitute (with [supplant](http://javascript.crockford.com/remedial.html) syntax) all properties in BEM object.
-
-###### glob
-Type: `String` or `Array`  
-
-----
-
-In conclusion, if you need to get all css files, then write:
+If you need to get all css files, then write:
 
 ```js
 var concat = require('gulp-concat');
 deps.src('{bem}.css').pipe(concat('index.css'));
 ```
+
+###### glob
+Type: `String` or `Array`  
+
+Same as in [gulp.src](https://github.com/gulpjs/gulp/blob/master/docs/API.md#gulpsrcglobs-options) method, but with some interpolation happening. To provide this name generation `bem.src` will substitute (with [supplant](http://javascript.crockford.com/remedial.html) syntax) all properties in BEM object.
+
+----
 
 Whole code to build CSS file will look like this:
 
