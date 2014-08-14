@@ -43,6 +43,8 @@ This will return Stream of BEM objects. You can manually fetch needed files from
 ###### path
 Type: `String`  
 
+This parameters points to a BEM object in tree, which dependency stream you want to get. Essentialy it's a path to a BEM object in filesystem (one-to-one).
+
 ### bem.src(glob)
 
 This method consumes stream of BEM objects and searches files by glob pattern in them.
