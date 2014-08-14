@@ -3,7 +3,7 @@
 
 ## Usage
 
-Building CSS file for a `index` block:
+Building CSS file for `index` block:
 
 ```js
 var gulp    = require('gulp');
