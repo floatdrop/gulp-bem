@@ -3,7 +3,22 @@
 
 ## Usage
 
-See [gulp-bem-stub](https://github.com/matmuchrapna/gulp-bem-stub) as example of full-featured web site created with BEM.
+Building CSS file for a `index` block:
+
+```js
+var gulp    = require('gulp');
+var bem     = require('gulp-bem');
+var concat  = require('gulp-concat');
+
+var tree = bem.objects().pipe(bem.tree());
+var deps = tree.deps('desktop.bundles/index');
+
+deps.src('{bem}.css')
+    .pipe(concat('index.css'))
+    .pipe(gulp.dest('./dist'));
+```
+
+Pretty easy, eh, mate? Take a look at [gulp-bem-stub](https://github.com/matmuchrapna/gulp-bem-stub) as example of full-featured web site created with BEM.
 
 ## API
 
@@ -63,25 +78,6 @@ deps.src('{bem}.css').pipe(concat('index.css'));
 Type: `String` or `Array`  
 
 Same as in [gulp.src](https://github.com/gulpjs/gulp/blob/master/docs/API.md#gulpsrcglobs-options) method, but with some interpolation happening. To provide this name generation `bem.src` will substitute (with [supplant](http://javascript.crockford.com/remedial.html) syntax) all properties in BEM object.
-
-----
-
-Whole code to build CSS file will look like this:
-
-```js
-var gulp    = require('gulp');
-var bem     = require('gulp-bem');
-var concat  = require('gulp-concat');
-
-var tree = bem.objects().pipe(bem.tree());
-var deps = tree.deps('desktop.bundles/index');
-
-deps.src('{bem}.css')
-    .pipe(concat('index.css'))
-    .pipe(gulp.dest('./dist'));
-```
-
-Pretty easy, eh, mate? More detailed example can be found in [gulp-bem-stub](https://github.com/matmuchrapna/gulp-bem-stub). Take a look!
 
 ## License
 
