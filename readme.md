@@ -22,8 +22,9 @@ Optional level or list of levels to load BEM objects from. If omitted - current 
 Constructs dependency tree of your BEM project by consuming stream of BEM objects. All further work is happens on this tree.
 
 ```js
-var gulp = require('gulp');
-var bem = require('gulp-bem');
+var gulp    = require('gulp');
+var bem     = require('gulp-bem');
+
 var tree = bem.objects().pipe(bem.tree());
 ```
 
@@ -35,7 +36,7 @@ After you got your tree - you can call this method to get __ordered__ BEM object
 
 ```js
 // suppose you have desktop.bundles/index as entry point of index page
-var deps = tree.deps('desktop.bundles/index');
+var deps    = tree.deps('desktop.bundles/index');
 ```
 
 This will return Stream of BEM objects. You can manually fetch needed files from them, but we provide additional helper methods to do this.
@@ -54,7 +55,8 @@ All files, that contained under BEM object path, following some convention about
 If you need to get all css files, then write:
 
 ```js
-var concat = require('gulp-concat');
+var concat  = require('gulp-concat');
+
 deps.src('{bem}.css').pipe(concat('index.css'));
 ```
 
@@ -68,12 +70,13 @@ Same as in [gulp.src](https://github.com/gulpjs/gulp/blob/master/docs/API.md#gul
 Whole code to build CSS file will look like this:
 
 ```js
-var gulp = require('gulp');
-var bem = require('gulp-bem');
-var concat = require('gulp-concat');
-var tree = bem.objects().pipe(bem.tree());
+var gulp    = require('gulp');
+var bem     = require('gulp-bem');
+var concat  = require('gulp-concat');
 
+var tree = bem.objects().pipe(bem.tree());
 var deps = tree.deps('desktop.bundles/index');
+
 deps.src('{bem}.css')
     .pipe(concat('index.css'))
     .pipe(gulp.dest('./dist'));
