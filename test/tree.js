@@ -37,7 +37,7 @@ describe('bem.tree', function () {
 
     it('should emit returned array from BEMGraph as stream', function (done) {
         var tree = bemTree();
-        sinon.stub(tree.graph, 'dependencies', function () {
+        sinon.stub(tree.graph, 'deps', function () {
             return [1];
         });
 

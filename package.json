@@ -30,7 +30,7 @@
   "dependencies": {
     "after-event": "^0.1.0",
     "bem-object": "^0.1.0",
-    "deps-graph": "0.0.2",
+    "deps-graph": "^0.1.0",
     "stream-array": "^0.1.3",
     "stream-combiner": "^0.2.1",
     "stream-dirs": "^1.0.0",

@@ -19,7 +19,7 @@ function tree() {
     stream.deps = function (path) {
         var output = through.obj();
         after(stream, 'finish', function () {
-            streamArray(graph.dependencies(path)).pipe(output);
+            streamArray(graph.deps(path)).pipe(output);
         });
         return output;
     };
