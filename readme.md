@@ -3,6 +3,10 @@
 
 This package provides simple and clear tools to build your BEM project.
 
+## Disclaimer
+
+This is __alpha__ release of `gulp-bem`. It most likely not work with complex BEM projects for now. Stay tuned for `1.0.0` release!
+
 ## Usage
 
 Building CSS file for `index` block:
