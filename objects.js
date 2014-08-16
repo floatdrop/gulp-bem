@@ -1,7 +1,7 @@
 var BEMobject = require('bem-object');
 var through = require('through2');
 var readdir = require('stream-dirs');
-var join = require('stream-combiner');
+var join = require('ordered-read-streams');
 
 function createBemObject() {
     return through.obj(function (obj, enc, cb) {
