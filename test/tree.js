@@ -1,6 +1,6 @@
 /* global describe, it */
 
-var objects      = require('../objects.js');
+var objects     = require('../objects.js');
 var bemTree     = require('../tree.js');
 var path        = require('path');
 var sinon       = require('sinon');
