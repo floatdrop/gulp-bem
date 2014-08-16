@@ -18,6 +18,11 @@ describe('bem.tree', function () {
             .on('data', done.bind(null, null));
     });
 
+    it('should have tree.deps.src shortcut', function () {
+        var tree = bemTree();
+        tree.deps('path').should.have.property('src').and.instanceOf(Function);
+    });
+
     it('should emit deps only when tree is ready', function (done) {
         var tree = bemTree();
         tree.deps('path')
