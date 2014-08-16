@@ -19,4 +19,10 @@ describe('bem.objects', function () {
             .pipe(assert.length(2))
             .on('end', done);
     });
+
+    it('should accept array of levels', function (done) {
+        objects([simpleBundle, coupleBundle])
+            .pipe(assert.length(3))
+            .on('end', done);
+    });
 });
