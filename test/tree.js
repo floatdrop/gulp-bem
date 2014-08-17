@@ -21,7 +21,7 @@ describe('bem.tree', function () {
     it('should have tree.deps.src shortcut', function () {
         var tree = bemTree();
         tree.deps('path').should.have.property('src').and.instanceOf(Function);
-        tree.deps('path').src('*.css').should.be.ok;
+        tree.deps('path').src('*.css').should.have.property('pipe');
     });
 
     it('should emit deps only when tree is ready', function (done) {
@@ -55,5 +55,20 @@ describe('bem.tree', function () {
                 i.should.eql(1);
                 done();
             });
+    });
+
+    it('should emit errors from tree.graph', function (done) {
+        var tree = bemTree()
+            .on('error', function (err) {
+                err.message.should.be.eql('Bang!');
+                done();
+            });
+
+        sinon.stub(tree.graph, 'add', function () {
+            throw new Error('Bang!');
+        });
+
+        objects(depsBundle)
+            .pipe(tree);
     });
 });
