@@ -7,6 +7,18 @@ require('should');
 var simpleBundle = path.join(__dirname, 'fixtures/single.bundle/index');
 
 describe('bem.src', function () {
+    it('should throw on invalid glob', function () {
+        (function () {
+            src(undefined);
+        }).should.throw(/Invalid glob argument/);
+    });
+
+    it('should accept array of globs', function () {
+        (function () {
+            src(['*.css']);
+        }).should.not.throw(/Invalid glob argument/);
+    });
+
     it('should get files from deps', function (done) {
         var stream = src('*.css');
         stream.on('data', function (css) {
