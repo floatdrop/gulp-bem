@@ -21,6 +21,7 @@ describe('bem.tree', function () {
     it('should have tree.deps.src shortcut', function () {
         var tree = bemTree();
         tree.deps('path').should.have.property('src').and.instanceOf(Function);
+        tree.deps('path').src('*.css').should.be.ok;
     });
 
     it('should emit deps only when tree is ready', function (done) {
