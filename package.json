@@ -4,7 +4,8 @@
   "description": "BEM toolset for gulp",
   "main": "index.js",
   "scripts": {
-    "test": "mocha -R spec"
+    "test": "mocha -R spec",
+    "coveralls": "istanbul cover _mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | coveralls && rm -rf ./coverage"
   },
   "repository": {
     "type": "git",
@@ -24,6 +25,9 @@
   "devDependencies": {
     "mocha": "^1.21.4",
     "should": "^4.0.4",
+    "coveralls": "^2.7.0",
+    "istanbul": "^0.3.0",
+    "mocha-lcov-reporter": "^0.0.1",
     "sinon": "^1.10.3",
     "stream-assert": "^0.1.0"
   },

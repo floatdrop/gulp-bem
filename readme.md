@@ -1,4 +1,4 @@
-# gulp-bem [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Gitter chat](https://badges.gitter.im/floatdrop/gulp-bem.png)](https://gitter.im/floatdrop/gulp-bem)
+# gulp-bem [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Coverage Status][coveralls-image]][coveralls-url] [![Dependency Status][depstat-image]][depstat-url]
 > Toolset for building BEM project with gulp
 
 This package provides simple and clear tools to build your BEM project.
@@ -87,6 +87,8 @@ Same as in [gulp.src](https://github.com/gulpjs/gulp/blob/master/docs/API.md#gul
 
 ## Questions
 
+We are answering questions about `gulp-bem` and `gulp` itself at [![Gitter chat](https://badges.gitter.im/floatdrop/gulp-bem.png)](https://gitter.im/floatdrop/gulp-bem).
+
 If you have questions about BEM methodology itself - you can ask them at [![Gitter chat](https://badges.gitter.im/bem/talk.png)](https://gitter.im/bem/talk)
 
 ## License
@@ -101,3 +103,6 @@ MIT (c) 2014 Vsevolod Strukchinsky
 
 [depstat-url]: https://david-dm.org/floatdrop/gulp-bem
 [depstat-image]: https://david-dm.org/floatdrop/gulp-bem.png?theme=shields.io
+
+[coveralls-url]: https://coveralls.io/r/floatdrop/gulp-bem
+[coveralls-image]: https://coveralls.io/repos/floatdrop/gulp-bem/badge.png
