@@ -87,7 +87,7 @@ Same as in [gulp.src](https://github.com/gulpjs/gulp/blob/master/docs/API.md#gul
 
 ## Questions
 
-We are answering questions about `gulp-bem` and `gulp` itself at [![Gitter chat](https://badges.gitter.im/floatdrop/gulp-bem.png)](https://gitter.im/floatdrop/gulp-bem).
+We are answering questions about `gulp-bem` and `gulp` itself at [![Gitter chat](https://badges.gitter.im/floatdrop/gulp-bem.png)](https://gitter.im/floatdrop/gulp-bem)
 
 If you have questions about BEM methodology itself - you can ask them at [![Gitter chat](https://badges.gitter.im/bem/talk.png)](https://gitter.im/bem/talk)
 
