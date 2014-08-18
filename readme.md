@@ -30,7 +30,7 @@ Pretty easy, eh, mate? Take a look at [gulp-bem-stub](https://github.com/matmuch
 
 ### bem.objects([levels])
 
-It will emit all [BEM objects](https://github.com/floatdrop/bem-object) from levels directories.
+It will parse and emit all [BEM objects](https://github.com/floatdrop/bem-object) from levels directories. You can read more about parsing `*.deps.js` files in [bem-object readme](https://github.com/floatdrop/bem-object#bem-object----).
 
 ###### levels
 Type: `String` or `Array`  
@@ -87,8 +87,7 @@ Same as in [gulp.src](https://github.com/gulpjs/gulp/blob/master/docs/API.md#gul
 
 ## Questions
 
-[![Gitter chat](https://badges.gitter.im/floatdrop/gulp-bem.png)](https://gitter.im/floatdrop/gulp-bem) 
-[![Gitter chat](https://badges.gitter.im/bem/talk.png)](https://gitter.im/bem/talk)
+[![Gitter chat](https://badges.gitter.im/floatdrop/gulp-bem.png)](https://gitter.im/floatdrop/gulp-bem) [![Gitter chat](https://badges.gitter.im/bem/talk.png)](https://gitter.im/bem/talk)
 
 ## License
 
