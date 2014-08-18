@@ -1,6 +1,6 @@
 {
   "name": "gulp-bem",
-  "version": "0.0.5",
+  "version": "0.1.0",
   "description": "BEM toolset for gulp",
   "main": "index.js",
   "scripts": {
