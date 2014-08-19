@@ -1,5 +1,5 @@
 var stream = require('bem-object').stream;
-var read = require('read-streams');
+var read = require('multistream');
 
 function objects(levels) {
     if (typeof levels === 'string') { levels = [ levels ]; }
@@ -8,7 +8,7 @@ function objects(levels) {
 
     var streams = levels.map(stream);
 
-    return read(streams);
+    return read(streams, { objectMode: true });
 }
 
 module.exports = objects;
