@@ -11,9 +11,9 @@ function tree() {
     function addToTree(bemObject, enc, callback) {
         try {
             this.graph.add(bemObject);
-            callback(null, bemObject);
+            callback(null);
         } catch (err) {
-            callback(err, bemObject);
+            callback(err);
         }
     }
 
