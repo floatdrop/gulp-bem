@@ -12,12 +12,6 @@ describe('bem.tree', function () {
         bemTree().should.have.property('deps').with.instanceOf(Function);
     });
 
-    it('should be passThrough stream', function (done) {
-        objects(depsBundle)
-            .pipe(bemTree())
-            .on('data', done.bind(null, null));
-    });
-
     it('should have tree.deps.src shortcut', function () {
         var tree = bemTree();
         tree.deps('path').should.have.property('src').and.instanceOf(Function);
