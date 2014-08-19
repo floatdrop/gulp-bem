@@ -1,5 +1,6 @@
-# gulp-bem [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Coverage Status][coveralls-image]][coveralls-url] [![Dependency Status][depstat-image]][depstat-url]
-> Toolset for building BEM project with gulp
+# gulp-bem 
+
+[![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Coverage Status][coveralls-image]][coveralls-url] [![Dependency Status][depstat-image]][depstat-url]
 
 This package provides simple and clear tools to build your BEM project.
 
@@ -94,13 +95,13 @@ Same as in [gulp.src](https://github.com/gulpjs/gulp/blob/master/docs/API.md#gul
 MIT (c) 2014 Vsevolod Strukchinsky
 
 [npm-url]: https://npmjs.org/package/gulp-bem
-[npm-image]: https://badge.fury.io/js/gulp-bem.png
+[npm-image]: http://img.shields.io/npm/v/gulp-bem.svg?style=flat
 
 [travis-url]: http://travis-ci.org/floatdrop/gulp-bem
-[travis-image]: https://travis-ci.org/floatdrop/gulp-bem.png?branch=master
+[travis-image]: http://img.shields.io/travis/floatdrop/gulp-bem.svg?branch=master&style=flat
 
-[depstat-url]: https://david-dm.org/floatdrop/gulp-bem
-[depstat-image]: https://david-dm.org/floatdrop/gulp-bem.png?theme=shields.io
+[depstat-url]: https://gemnasium.com/floatdrop/gulp-bem
+[depstat-image]: http://img.shields.io/gemnasium/floatdrop/gulp-bem.svg?style=flat
 
 [coveralls-url]: https://coveralls.io/r/floatdrop/gulp-bem
-[coveralls-image]: https://coveralls.io/repos/floatdrop/gulp-bem/badge.png
+[coveralls-image]: http://img.shields.io/coveralls/floatdrop/gulp-bem.svg?style=flat
