@@ -1,4 +1,4 @@
-# gulp-bem 
+# gulp-bem
 
 [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Coverage Status][coveralls-image]][coveralls-url] [![Dependency Status][depstat-image]][depstat-url]
 
@@ -85,6 +85,10 @@ deps.src('{bem}.css').pipe(concat('index.css'));
 Type: `String` or `Array`  
 
 Same as in [gulp.src](https://github.com/gulpjs/gulp/blob/master/docs/API.md#gulpsrcglobs-options) method, but with some interpolation happening. To provide BEM name generation - `bem.src` will substitute (with [supplant](http://javascript.crockford.com/remedial.html) syntax) all properties in BEM object.
+
+## Related
+
+ * [gulp-bem-debug](https://github.com/floatdrop/gulp-bem-debug) - nice output for BEM objects in stream.
 
 ## Questions
 
