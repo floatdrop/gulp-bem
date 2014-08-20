@@ -104,8 +104,8 @@ MIT (c) 2014 Vsevolod Strukchinsky
 [travis-url]: http://travis-ci.org/floatdrop/gulp-bem
 [travis-image]: http://img.shields.io/travis/floatdrop/gulp-bem.svg?branch=master&style=flat
 
-[depstat-url]: https://gemnasium.com/floatdrop/gulp-bem
-[depstat-image]: http://img.shields.io/gemnasium/floatdrop/gulp-bem.svg?style=flat
+[depstat-url]: https://david-dm.org/floatdrop/gulp-bem
+[depstat-image]: http://img.shields.io/david/floatdrop/gulp-bem.svg?style=flat
 
 [coveralls-url]: https://coveralls.io/r/floatdrop/gulp-bem
 [coveralls-image]: http://img.shields.io/coveralls/floatdrop/gulp-bem.svg?style=flat
