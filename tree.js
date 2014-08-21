@@ -7,6 +7,7 @@ var after       = require('after-event');
 function tree(parent) {
     var self = this;
     var stream = through.obj(addToTree);
+    parent = parent || {};
 
     function addToTree(bemObject, enc, callback) {
         try {
