@@ -8,6 +8,13 @@ var sinon       = require('sinon');
 var depsBundle  = path.join(__dirname, 'fixtures/deps.bundle');
 
 describe('bem.tree', function () {
+    it('should return new tree with clone', function () {
+        var tree = bemTree();
+        tree.should.have.property('clone').with.instanceOf(Function);
+        var newTree = bemTree().clone();
+        tree.should.not.equal(newTree);
+    });
+
     it('should return object with deps function', function () {
         bemTree().should.have.property('deps').with.instanceOf(Function);
     });
