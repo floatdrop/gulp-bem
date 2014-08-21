@@ -39,7 +39,7 @@ Default: `process.cwd()`
 
 Optional level or list of levels to load BEM objects from. If omitted - current directory is used as default level.
 
-### bem.tree()
+### bem.tree([parent])
 
 Constructs dependency tree of your BEM project by consuming stream of BEM objects. All further work is happens on this tree.
 
@@ -49,7 +49,12 @@ var bem     = require('gulp-bem');
 var tree = bem.objects().pipe(bem.tree());
 ```
 
-It will return  __immutable__ passThrough Stream with additional method. On each new pipe call tree will be set as parent to empty tree.
+It will return Stream with additional method. On each new pipe call tree will be set as parent to empty tree.
+
+###### parent
+Type: `Object`
+
+Parent tree, that be used in deps searches (read [clone](https://github.com/floatdrop/gulp-bem#treeclone) method description).
 
 ### tree.deps(path)
 
@@ -66,6 +71,12 @@ This will return Stream of BEM objects. You can manually fetch needed files from
 Type: `String`  
 
 This parameters points to a BEM object in tree, which dependency stream you want to get. Essentialy it's a path to a BEM object in filesystem (one-to-one).
+
+### tree.clone()
+
+Returns cloned tree, that should be used for creating separate groups of levels. For example common blocks can be shared through base tree with blocks on page.
+
+Internal it is just shortcut to `bem.tree(tree)`.
 
 ### bem.src(glob)
 

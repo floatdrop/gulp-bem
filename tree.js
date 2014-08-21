@@ -4,7 +4,7 @@ var DepsGraph   = require('deps-graph');
 var streamArray = require('stream-array');
 var after       = require('after-event');
 
-function tree() {
+function tree(parent) {
     var self = this;
     var stream = through.obj(addToTree);
 
@@ -17,7 +17,11 @@ function tree() {
         }
     }
 
-    var graph = stream.graph = new DepsGraph();
+    var graph = stream.graph = new DepsGraph(parent.graph);
+    stream.clone = function () {
+        return tree(self);
+    };
+
     stream.deps = function (path) {
         var output = through.obj();
         after(stream, 'finish', function () {
