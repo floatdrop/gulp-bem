@@ -32,6 +32,18 @@ describe('bem.tree', function () {
         setTimeout(done, 10);
     });
 
+    it('should emit deps only when tree and its parent are both ready', function (done) {
+        var parent = bemTree();
+        var tree = parent.clone();
+
+        tree.deps('path')
+            .on('data', done.bind(null, new Error('Deps emit data before finish event!')));
+
+        objects(depsBundle).pipe(tree);
+
+        setTimeout(done, 10);
+    });
+
     it('should call add on graph', function (done) {
         var tree = bemTree();
         sinon.stub(tree.graph, 'add', function (dep) {

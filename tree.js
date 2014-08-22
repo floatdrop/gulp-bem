@@ -7,7 +7,6 @@ var after       = require('after-event');
 function tree(parent) {
     var self = this;
     var stream = through.obj(addToTree);
-    parent = parent || {};
 
     function addToTree(bemObject, enc, callback) {
         try {
@@ -18,16 +17,28 @@ function tree(parent) {
         }
     }
 
-    var graph = stream.graph = new DepsGraph(parent.graph);
+    var graph = stream.graph = new DepsGraph(parent && parent.graph);
     stream.clone = function () {
-        return tree(self);
+        return tree(stream);
     };
 
     stream.deps = function (path) {
         var output = through.obj();
-        after(stream, 'finish', function () {
-            streamArray(graph.deps(path)).pipe(output);
-        });
+
+        var i = 1;
+        function tick() {
+            i --;
+            if (i === 0) {
+                streamArray(graph.deps(path)).pipe(output);
+            }
+        }
+
+        if (parent) {
+            i ++;
+            after(parent, 'finish', tick);
+        }
+
+        after(stream, 'finish', tick);
 
         output.src = function () {
             return output.pipe(src.apply(self, arguments));
