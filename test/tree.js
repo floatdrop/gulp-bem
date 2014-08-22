@@ -44,6 +44,31 @@ describe('bem.tree', function () {
         setTimeout(done, 10);
     });
 
+    it('should emit deps only when all parents are ready', function (done) {
+        var grandma = bemTree();
+        var parent = grandma.clone();
+        var tree = parent.clone();
+
+        tree.deps('path')
+            .on('data', done.bind(null, new Error('Deps emit data before finish event!')));
+
+        objects(depsBundle).pipe(parent);
+        objects(depsBundle).pipe(tree);
+
+        setTimeout(done, 10);
+    });
+
+    it('should emit deps after parent is ready', function (done) {
+        var parent = bemTree();
+        var tree = parent.clone();
+
+        tree.deps('path')
+            .on('error', done.bind(null, null));
+
+        objects(depsBundle).pipe(parent);
+        objects(depsBundle).pipe(tree);
+    });
+
     it('should call add on graph', function (done) {
         var tree = bemTree();
         sinon.stub(tree.graph, 'add', function (dep) {

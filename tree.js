@@ -22,6 +22,12 @@ function tree(parent) {
         return tree(stream);
     };
 
+    stream.on('finish', function () {
+        if (!parent) {
+            stream.emit('ready');
+        }
+    });
+
     stream.deps = function (path) {
         var output = through.obj();
 
@@ -29,13 +35,17 @@ function tree(parent) {
         function tick() {
             i --;
             if (i === 0) {
-                streamArray(graph.deps(path)).pipe(output);
+                try {
+                    streamArray(graph.deps(path)).pipe(output);
+                } catch (err) {
+                    output.emit('error', err);
+                }
             }
         }
 
         if (parent) {
             i ++;
-            after(parent, 'finish', tick);
+            after(parent, 'ready', tick);
         }
 
         after(stream, 'finish', tick);
