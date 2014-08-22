@@ -33,7 +33,7 @@
   },
   "dependencies": {
     "after-event": "^0.1.0",
-    "bem-object": "^0.11.1",
+    "bem-object": "^0.12.0",
     "deps-graph": "^0.5.1",
     "multistream": "^1.4.1",
     "stream-array": "^0.1.3",
