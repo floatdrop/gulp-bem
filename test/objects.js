@@ -25,4 +25,10 @@ describe('bem.objects', function () {
             .pipe(assert.length(3))
             .on('end', done);
     });
+
+    it('should accept options', function (done) {
+        objects(simpleBundle, {})
+            .pipe(assert.length(1))
+            .on('end', done);
+    });
 });

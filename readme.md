@@ -29,9 +29,15 @@ Pretty easy, eh, mate? Take a look at [gulp-bem-stub](https://github.com/matmuch
 
 ## API
 
-### bem.objects([levels])
+### bem.objects([levels], [options])
 
 It will parse and emit all [BEM objects](https://github.com/floatdrop/bem-object) from levels directories. You can read more about parsing `*.deps.js` files in [bem-object readme](https://github.com/floatdrop/bem-object#bem-object----).
+
+###### options
+Type: `Object`  
+Default: `{ elem: '__', mod: '_' }`
+
+Describes options, that will be used for BEM names generation and level directory traversing.
 
 ###### levels
 Type: `String` or `Array`  
