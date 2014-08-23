@@ -2,15 +2,7 @@ var through = require('through2');
 var fs = require('fs');
 var join = require('path').join;
 var rod = require('require-or-die');
-var depsnormalize = require('deps-normalize');
-
-function normalize(p, c) { return p.concat(depsnormalize(c)); }
-
-function toArray(obj) {
-    if (!obj) { return []; }
-    if (!Array.isArray(obj)) { return [obj]; }
-    return obj;
-}
+var normalize = require('deps-normalize');
 
 function deps() {
     function readDeps(bem, enc, cb) {
@@ -19,13 +11,8 @@ function deps() {
             if (!exist) { return cb(null, bem); }
             rod(depsFile, function (err, deps) {
                 if (err) { return cb(err); }
-                bem.require = toArray(deps.require || deps.mustDeps)
-                    .reduce(normalize, [])
-                    .map(bem.copy, bem);
-
-                bem.expect = toArray(deps.expect || deps.shouldDeps)
-                    .reduce(normalize, [])
-                    .map(bem.copy, bem);
+                bem.require = normalize(deps.require || deps.mustDeps).map(bem.copy, bem);
+                bem.expect = normalize(deps.expect || deps.shouldDeps).map(bem.copy, bem);
 
                 cb(null, bem);
             });
