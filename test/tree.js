@@ -4,6 +4,7 @@ var objects     = require('../objects.js');
 var bemTree     = require('../tree.js');
 var path        = require('path');
 var sinon       = require('sinon');
+var assert      = require('stream-assert');
 
 var depsBundle  = path.join(__dirname, 'fixtures/deps.bundle');
 
@@ -80,19 +81,10 @@ describe('bem.tree', function () {
     });
 
     it('should emit returned array from BEMGraph as stream', function (done) {
-        var tree = bemTree();
-        sinon.stub(tree.graph, 'deps', function () {
-            return [1];
-        });
-
-        objects(depsBundle)
-            .pipe(tree);
-
-        tree.deps()
-            .on('data', function (i) {
-                i.should.eql(1);
-                done();
-            });
+        var tree = objects(depsBundle).pipe(bemTree());
+        tree.deps('test/fixtures/deps.bundle/index')
+            .pipe(assert.length(1))
+            .on('end', done);
     });
 
     it('should emit errors from tree.graph', function (done) {
