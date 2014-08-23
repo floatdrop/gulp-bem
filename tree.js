@@ -3,6 +3,7 @@ var src         = require('./src.js');
 var DepsGraph   = require('deps-graph');
 var streamArray = require('stream-array');
 var after       = require('after-event');
+var bemObject   = require('bem-object');
 
 function tree(parent) {
     var self = this;
@@ -36,7 +37,9 @@ function tree(parent) {
             i --;
             if (i === 0) {
                 try {
-                    streamArray(graph.deps(path)).pipe(output);
+                    var bem = bemObject.fromPath(path);
+                    var deps = graph.deps(bem);
+                    streamArray(deps).pipe(output);
                 } catch (err) {
                     output.emit('error', err);
                 }

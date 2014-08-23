@@ -41,7 +41,7 @@ Optional level or list of levels to load BEM objects from. If omitted - current 
 
 ### bem.deps()
 
-Reads `*.deps.js` files from the BEM objects.
+Reads `require` and `expect` properties from `*.deps.js` files (also normalized by [deps-normalize](https://github.com/floatdrop/deps-normalize#normalization) package).
 
 ### bem.tree([parent])
 
