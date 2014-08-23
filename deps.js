@@ -6,13 +6,13 @@ var normalize = require('deps-normalize');
 
 function deps() {
     function readDeps(bem, enc, cb) {
-        var depsFile = join(bem.path, bem.id + '.js');
-        fs.exist(depsFile, function (exist) {
+        var depsFile = join(bem.path, bem.id + '.deps.js');
+        fs.exists(depsFile, function (exist) {
             if (!exist) { return cb(null, bem); }
             rod(depsFile, function (err, deps) {
                 if (err) { return cb(err); }
-                bem.require = normalize(deps.require || deps.mustDeps);
-                bem.expect = normalize(deps.expect || deps.shouldDeps);
+                bem.require = normalize(deps.require || deps.mustDeps || []);
+                bem.expect = normalize(deps.expect || deps.shouldDeps || []);
                 cb(null, bem);
             });
         });
