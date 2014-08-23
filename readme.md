@@ -17,7 +17,7 @@ var gulp    = require('gulp');
 var bem     = require('gulp-bem');
 var concat  = require('gulp-concat');
 
-var tree = bem.objects().pipe(bem.tree());
+var tree = bem.objects().pipe(bem.deps()).pipe(bem.tree());
 var deps = tree.deps('desktop.bundles/index');
 
 deps.src('{bem}.css')
@@ -39,6 +39,10 @@ Default: `process.cwd()`
 
 Optional level or list of levels to load BEM objects from. If omitted - current directory is used as default level.
 
+### bem.deps()
+
+Reads `*.deps.js` files from the BEM objects.
+
 ### bem.tree([parent])
 
 Constructs dependency tree of your BEM project by consuming stream of BEM objects. All further work is happens on this tree.
@@ -46,7 +50,7 @@ Constructs dependency tree of your BEM project by consuming stream of BEM object
 ```js
 var bem     = require('gulp-bem');
 
-var tree = bem.objects().pipe(bem.tree());
+var tree = bem.objects().pipe(bem.deps()).pipe(bem.tree());
 ```
 
 It will return Stream with additional method. On each new pipe call tree will be set as parent to empty tree.
