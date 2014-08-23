@@ -31,7 +31,7 @@ Pretty easy, eh, mate? Take a look at [gulp-bem-stub](https://github.com/matmuch
 
 ### bem.objects([levels], [options])
 
-It will parse and emit all [BEM objects](https://github.com/floatdrop/bem-object) from levels directories. You can read more about parsing `*.deps.js` files in [bem-object readme](https://github.com/floatdrop/bem-object#bem-object----).
+It will parse and emit all [BEM objects](https://github.com/floatdrop/bem-object) from levels directories.
 
 ###### options
 Type: `Object`  
@@ -47,7 +47,7 @@ Optional level or list of levels to load BEM objects from. If omitted - current 
 
 ### bem.deps()
 
-Reads `require` and `expect` properties from `*.deps.js` files (also normalized by [deps-normalize](https://github.com/floatdrop/deps-normalize#normalization) package).
+Reads `require` and `expect` properties from `*.deps.js` files (also normalized by [deps-normalize](https://github.com/floatdrop/deps-normalize#normalization) package). You can read more about parsing `*.deps.js` files in [bem-object readme](https://github.com/floatdrop/bem-object#bem-object----).
 
 ### bem.tree([parent])
 
