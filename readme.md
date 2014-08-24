@@ -29,15 +29,28 @@ Pretty easy, eh, mate? Take a look at [gulp-bem-stub](https://github.com/matmuch
 
 ## API
 
-### bem.objects([levels], [options])
+### bem.BEM([options])
+
+Constructor, that can be used to configure new `gulp-bem` instance. By default `require` will return instance with default options.
+
+#### options
+Type: `Object`
+
+##### options.elem
+Type: `String`  
+Default: `__`
+
+Element delimeter.
+
+##### options.mod
+Type: `String`  
+Default: `_`
+
+Modificator and value delimeter.
+
+### bem.objects([levels])
 
 It will parse and emit all [BEM objects](https://github.com/floatdrop/bem-object) from levels directories.
-
-###### options
-Type: `Object`  
-Default: `{ elem: '__', mod: '_' }`
-
-Describes options, that will be used for BEM names generation and level directory traversing.
 
 ###### levels
 Type: `String` or `Array`  

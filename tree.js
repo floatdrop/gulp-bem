@@ -37,7 +37,7 @@ function tree(parent) {
             i --;
             if (i === 0) {
                 try {
-                    var bem = bemObject.fromPath(path);
+                    var bem = bemObject.fromPath(path, this._options);
                     var deps = graph.deps(bem);
                     streamArray(deps).pipe(output);
                 } catch (err) {
