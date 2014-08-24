@@ -60,7 +60,7 @@ Optional level or list of levels to load BEM objects from. If omitted - current 
 
 ### bem.deps()
 
-Reads `require` and `expect` properties from `*.deps.js` files (also normalized by [deps-normalize](https://github.com/floatdrop/deps-normalize#normalization) package). You can read more about parsing `*.deps.js` files in [bem-object readme](https://github.com/floatdrop/bem-object#bem-object----).
+Reads `require` and `expect` properties from `*.deps.js` files (also normalized by [deps-normalize](https://github.com/floatdrop/deps-normalize#normalization) package). You can read more about parsing `*.deps.js` files in [source code](https://github.com/floatdrop/gulp-bem/blob/master/deps.js).
 
 ### bem.tree([parent])
 
