@@ -123,6 +123,7 @@ Same as in [gulp.src](https://github.com/gulpjs/gulp/blob/master/docs/API.md#gul
 ## Related
 
  * [gulp-bem-debug](https://github.com/floatdrop/gulp-bem-debug) - nice output for BEM objects in stream.
+ * [gulp-bem-specs](https://github.com/floatdrop/gulp-bem-specs) - specifications, that used in `gulp-bem`.
 
 ## Questions
 
