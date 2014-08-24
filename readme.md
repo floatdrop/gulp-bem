@@ -67,7 +67,7 @@ Reads `require` and `expect` properties from `*.deps.js` files (also normalized 
 Constructs dependency tree of your BEM project by consuming stream of BEM objects. All further work is happens on this tree.
 
 ```js
-var bem     = require('gulp-bem');
+var bem = require('gulp-bem');
 
 var tree = bem.objects().pipe(bem.deps()).pipe(bem.tree());
 ```
@@ -85,7 +85,7 @@ After you got your tree - you can call this method to get __ordered__ BEM object
 
 ```js
 // suppose you have desktop.bundles/index as entry point of index page
-var deps    = tree.deps('desktop.bundles/index');
+var deps = tree.deps('desktop.bundles/index');
 ```
 
 This will return Stream of BEM objects. You can manually fetch needed files from them, but we provide additional helper methods to do this.
@@ -110,7 +110,7 @@ All files, that contained under BEM object path, following some convention about
 If you need to get all css files, then write:
 
 ```js
-var concat  = require('gulp-concat');
+var concat = require('gulp-concat');
 
 deps.src('{bem}.css').pipe(concat('index.css'));
 ```
