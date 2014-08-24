@@ -6,7 +6,7 @@ This package provides simple and clear tools to build your BEM project.
 
 ## Disclaimer
 
-This is __alpha__ release of `gulp-bem`. It most likely not work with complex BEM projects for now. Stay tuned for `1.0.0` release!
+We do not support [bem-core](https://github.com/bem/bem-core) and [bem-components](https://github.com/bem/bem-components), because of complex dependency system used in this layers. But we working on simplified layers - [bem-base](https://github.com/matmuchrapna/bem-base) and [bem-bootstrap](https://github.com/matmuchrapna/bem-bootstrap), which will be used in [gulp-bem-stub](https://github.com/matmuchrapna/gulp-bem-stub).
 
 ## Usage
 
