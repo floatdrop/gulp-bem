@@ -32,7 +32,6 @@
     "stream-assert": "^0.1.0"
   },
   "dependencies": {
-    "after-event": "^0.1.0",
     "bem-object": "^1.1.2",
     "deps-graph": "^0.7.0",
     "deps-normalize": "^1.0.0",

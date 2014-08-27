@@ -48,10 +48,10 @@ function tree(parent) {
 
         if (parent) {
             i ++;
-            after(parent, 'ready', tick);
+            parent.on('ready', tick);
         }
 
-        after(stream, 'finish', tick);
+        stream.on('finish', tick);
 
         output.src = function () {
             return output.pipe(src.apply(self, arguments));
