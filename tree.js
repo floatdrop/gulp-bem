@@ -2,7 +2,6 @@ var through     = require('through2');
 var src         = require('./src.js');
 var DepsGraph   = require('deps-graph');
 var streamArray = require('stream-array');
-var after       = require('after-event');
 var bemObject   = require('bem-object');
 
 function tree(parent) {
