@@ -10,22 +10,24 @@ We do not support [bem-core](https://github.com/bem/bem-core) and [bem-component
 
 ## Usage
 
-Building CSS file for `index` block:
+Building CSS for BEM project:
 
 ```js
 var gulp    = require('gulp');
 var bem     = require('gulp-bem');
 var concat  = require('gulp-concat');
 
-var tree = bem.objects().pipe(bem.deps()).pipe(bem.tree());
-var deps = tree.deps('desktop.bundles/index');
+var levels = ['base', 'blocks']
+var deps = bem.objects(levels);
 
 deps.src('{bem}.css')
     .pipe(concat('index.css'))
     .pipe(gulp.dest('./dist'));
 ```
 
-Pretty easy, eh, mate? Take a look at [gulp-bem-stub](https://github.com/matmuchrapna/gulp-bem-stub) as example of full-featured web site created with BEM.
+Pretty easy, eh, mate?
+
+Take a look at [gulp-bem-stub](https://github.com/matmuchrapna/gulp-bem-stub) as example of full-featured web site created with BEM.
 
 ## API
 
