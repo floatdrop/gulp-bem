@@ -127,7 +127,7 @@ Same as in [gulp.src](https://github.com/gulpjs/gulp/blob/master/docs/API.md#gul
 
 ## Questions
 
-[![Gitter chat](https://badges.gitter.im/floatdrop/gulp-bem.png)](https://gitter.im/floatdrop/gulp-bem) [![Gitter chat](https://badges.gitter.im/bem/talk.png)](https://gitter.im/bem/talk)
+[![Gitter chat](https://badges.gitter.im/bem/talk.png)](https://gitter.im/bem/talk)
 
 ## License
 
