@@ -4,10 +4,6 @@
 
 This package provides simple and clear tools to build your BEM project.
 
-## Disclaimer
-
-We do not support [bem-core](https://github.com/bem/bem-core) and [bem-components](https://github.com/bem/bem-components), because of complex dependency system used in this layers. But we working on simplified layers - [bem-base](https://github.com/matmuchrapna/bem-base) and [bem-bootstrap](https://github.com/matmuchrapna/bem-bootstrap), which will be used in [gulp-bem-stub](https://github.com/matmuchrapna/gulp-bem-stub).
-
 ## Usage
 
 Building CSS for BEM project:
@@ -27,7 +23,7 @@ deps.src('{bem}.css')
 
 Pretty easy, eh, mate?
 
-Take a look at [gulp-bem-stub](https://github.com/matmuchrapna/gulp-bem-stub) as example of full-featured web site created with BEM.
+Take a look at [getbem.com](https://getbem.com/) as example of full-featured web site created with BEM and [gulp-bem-stub](https://github.com/matmuchrapna/gulp-bem-stub) as starting template for projects!
 
 ## API
 
@@ -126,6 +122,7 @@ Same as in [gulp.src](https://github.com/gulpjs/gulp/blob/master/docs/API.md#gul
 
  * [gulp-bem-debug](https://github.com/floatdrop/gulp-bem-debug) - nice output for BEM objects in stream.
  * [gulp-bem-specs](https://github.com/floatdrop/gulp-bem-specs) - specifications, that used in `gulp-bem`.
+ * [gulp-bem-pack](https://github.com/floatdrop/gulp-bem-pack) - packing JavaScript CommonJS files with browserify.
 
 ## Questions
 
