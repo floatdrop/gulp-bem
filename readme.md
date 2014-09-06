@@ -2,7 +2,7 @@
 
 [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Coverage Status][coveralls-image]][coveralls-url] [![Dependency Status][depstat-image]][depstat-url]
 
-This package provides simple and clear tools to build your BEM project.
+This package provides simple and clear tools to build your BEM project with simple `deps.js` support. In fact - gulp can build BEM projects without deps with no additional plugins, read about it on [getbem.com — Building](https://getbem.com/building.html).
 
 ## Usage
 
