@@ -25,6 +25,10 @@ Pretty easy, eh, mate?
 
 Take a look at [getbem.com](https://getbem.com/) as example of full-featured web site created with BEM and [gulp-bem-stub](https://github.com/matmuchrapna/gulp-bem-stub) as starting template for projects!
 
+## Rationale
+
+It is not obvoius, why you whant to use `gulp-bem` instead of just `gulp`. If you have small project, you probably should stick with bare `gulp`. `gulp-bem` becomes handy, when you have dependencies  
+
 ## API
 
 ### bem.BEM([options])
@@ -103,7 +107,7 @@ Internal it is just shortcut to `bem.tree(tree)`.
 
 This method consumes stream of BEM objects and searches files by glob pattern in them.
 
-All files, that contained under BEM object path, following some convention about naming. Often CSS file have name of block and added `.css` suffix. If BEM object describes block with modificators, then it can be `block_mod_value.css`. You can read about [bem-naming](http://bem.info/tools/bem/bem-naming/) and [directory structure](http://bem.info/method/filesystem/) at [BEM site](http://bem.info), if there are questions about it.
+All files, that contained under BEM object path, following some convention about naming. Often CSS file have name of block and added `.css` suffix. If BEM object describes block with modificators, then it can be `block_mod_value.css`. You can read about [naming](https://getbem.com/naming.html) and [directory structure](https://getbem.com/building.html) at [getbem.com](https://getbem.com), if there are questions about it.
 
 If you need to get all css files, then write:
 
