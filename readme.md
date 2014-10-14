@@ -54,11 +54,15 @@ Modificator and value delimeter.
 
 It will parse and emit all [BEM objects](https://github.com/floatdrop/bem-object) from levels directories.
 
+Returns `Stream` of bem-objects that have [map method](objects.js#L17). 
+
 ###### levels
 Type: `String` or `Array`  
 Default: `process.cwd()`  
 
 Optional level or list of levels to load BEM objects from. If omitted - current directory is used as default level.
+
+
 
 ### bem.deps()
 
