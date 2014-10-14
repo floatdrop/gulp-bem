@@ -22,6 +22,8 @@ function tree(parent) {
         return tree(stream);
     };
 
+    stream.setMaxListeners(128);
+
     stream.on('finish', function () {
         if (!parent) {
             stream.emit('ready');
