@@ -8,6 +8,13 @@ var simpleBundle = path.join(__dirname, 'fixtures/single.bundle');
 var coupleBundle = path.join(__dirname, 'fixtures/couple.bundle');
 
 describe('bem.objects', function () {
+    it('should have map helper', function (done) {
+        objects(simpleBundle)
+            .map(function () {
+                done();
+            });
+    });
+
     it('should get single object from level', function (done) {
         objects(simpleBundle)
             .pipe(assert.length(1))
