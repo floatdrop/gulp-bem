@@ -14,9 +14,10 @@ var bem     = require('gulp-bem');
 var concat  = require('gulp-concat');
 
 var levels = ['base', 'blocks']
-var deps = bem.objects(levels);
+var deps = bem(levels);
 
-deps.src('{bem}.css')
+deps('blocks/page')
+    .pipe(bem.src('{bem}.css'))
     .pipe(concat('index.css'))
     .pipe(gulp.dest('./dist'));
 ```
@@ -25,87 +26,24 @@ Pretty easy, eh, mate?
 
 Take a look at [getbem.com](https://getbem.com/) as example of full-featured web site created with BEM and [gulp-bem-stub](https://github.com/matmuchrapna/gulp-bem-stub) as starting template for projects!
 
-## Rationale
-
-It is not obvoius, why you whant to use `gulp-bem` instead of just `gulp`. If you have small project, you probably should stick with bare `gulp`. `gulp-bem` becomes handy, when you have dependencies  
-
 ## API
 
-### bem.BEM([options])
+### bem(levels, [options])
 
-Constructor, that can be used to configure new `gulp-bem` instance. By default `require` will return instance with default options.
+Creates function, that used for resolving dependencies in BEM project.
+
+#### levels
+Type: `Array` or `String`  
+Default: `process.cwd()`
+
+Contains array of [Levels](http://getbem.com/building). They will be used in searching for requested blocks and ordering blocks with same names in different levels.
+
+Returns [`deps` function](#deps-function).
 
 #### options
 Type: `Object`
 
-##### options.elem
-Type: `String`  
-Default: `__`
-
-Element delimeter.
-
-##### options.mod
-Type: `String`  
-Default: `_`
-
-Modificator and value delimeter.
-
-### bem.objects([levels])
-
-It will parse and emit all [BEM objects](https://github.com/floatdrop/bem-object) from levels directories.
-
-Returns `Stream` of bem-objects that have [map method](objects.js#L17). 
-
-###### levels
-Type: `String` or `Array`  
-Default: `process.cwd()`  
-
-Optional level or list of levels to load BEM objects from. If omitted - current directory is used as default level.
-
-
-
-### bem.deps()
-
-Reads `require` and `expect` properties from `*.deps.js` files (also normalized by [deps-normalize](https://github.com/floatdrop/deps-normalize#normalization) package). You can read more about parsing `*.deps.js` files in [source code](https://github.com/floatdrop/gulp-bem/blob/master/deps.js).
-
-### bem.tree([parent])
-
-Constructs dependency tree of your BEM project by consuming stream of BEM objects. All further work is happens on this tree.
-
-```js
-var bem = require('gulp-bem');
-
-var tree = bem.objects().pipe(bem.deps()).pipe(bem.tree());
-```
-
-It will return Stream with additional method. On each new pipe call tree will be set as parent to empty tree.
-
-###### parent
-Type: `Object`
-
-Parent tree, that be used in deps searches (read [clone](https://github.com/floatdrop/gulp-bem#treeclone) method description).
-
-### tree.deps(path)
-
-After you got your tree - you can call this method to get __ordered__ BEM objects, that should be used to build CSS/JS/etc of BEM project. Order is determinated by `require` and `expect` properties in BEM object.
-
-```js
-// suppose you have desktop.bundles/index as entry point of index page
-var deps = tree.deps('desktop.bundles/index');
-```
-
-This will return Stream of BEM objects. You can manually fetch needed files from them, but we provide additional helper methods to do this.
-
-###### path
-Type: `String`  
-
-This parameters points to a BEM object in tree, which dependency stream you want to get. Essentialy it's a path to a BEM object in filesystem (one-to-one).
-
-### tree.clone()
-
-Returns cloned tree, that should be used for creating separate groups of levels. For example common blocks can be shared through base tree with blocks on page.
-
-Internal it is just shortcut to `bem.tree(tree)`.
+Options, that passed to [bem-naming](https://github.com/bem/bem-naming).
 
 ### bem.src(glob)
 
@@ -113,18 +51,21 @@ This method consumes stream of BEM objects and searches files by glob pattern in
 
 All files, that contained under BEM object path, following some convention about naming. Often CSS file have name of block and added `.css` suffix. If BEM object describes block with modificators, then it can be `block_mod_value.css`. You can read about [naming](https://getbem.com/naming.html) and [directory structure](https://getbem.com/building.html) at [getbem.com](https://getbem.com), if there are questions about it.
 
-If you need to get all css files, then write:
-
-```js
-var concat = require('gulp-concat');
-
-deps.src('{bem}.css').pipe(concat('index.css'));
-```
-
-###### glob
+#### glob
 Type: `String` or `Array`  
 
 Same as in [gulp.src](https://github.com/gulpjs/gulp/blob/master/docs/API.md#gulpsrcglobs-options) method, but with some interpolation happening. To provide BEM name generation - `bem.src` will substitute (with [supplant](http://javascript.crockford.com/remedial.html) syntax) all properties in BEM object.
+
+## Deps function
+This function is used to get linearized dependency for `block`.
+
+### deps(block, [parents])
+Returns Stream of [bem-objects](https://github.com/floatdrop/bem-object).
+
+#### parents
+Type: `Function` or `Array`
+
+If block is not found in levels, that was specified for `deps` funciton creation - parent functions will be queried for dependencies.
 
 ## Related
 
