@@ -1,20 +1,26 @@
+var graph = require('deps-graph');
 
-var BEM = function(options) {
+var BEM = function(levels, options) {
     options = options || {};
 
     this._options = options;
 
     this._options.elem = options.elem || '__';
     this._options.mod = options.mod || '_';
+
+    function stringsArray(array) {
+        return array.reduce(function (prev, value) {
+            return prev && typeof value === 'string';
+        }, true);
+    }
+
+    if (!(Array.isArray(levels) && levels.length > 0 && stringsArray(levels)) && typeof levels !== 'string') {
+        throw new Error('Invalid levels: expected to be string or array of strings, but got ' + levels + ' (' + (typeof levels) + ')');
+    }
+
+    return graph(levels);
 };
 
-BEM.prototype.objects = require('./objects.js');
-BEM.prototype.tree = require('./tree.js');
 BEM.prototype.src = require('./src.js');
-BEM.prototype.deps = require('./deps.js');
-BEM.prototype.BEM = BEM;
 
-module.exports = new BEM({
-    elem: '__',
-    mod: '_'
-});
+module.exports = BEM;

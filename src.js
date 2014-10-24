@@ -1,13 +1,8 @@
 var through = require('through2');
-var supplant = require('./supplant.js');
 var vfs = require('vinyl-fs');
 var path = require('path');
 
-function prependPath(dep) {
-    return function (str) {
-        return path.join(dep.path, str);
-    };
-}
+require('remedial');
 
 function src(glob, options) {
     if (!isValidGlob(glob)) {
@@ -18,8 +13,9 @@ function src(glob, options) {
 
     function findFile(dep, enc, cb) {
         var newGlobs = glob
-            .map(supplant(dep))
-            .map(prependPath(dep));
+            .map(function (str) {
+                return path.join(dep.path, str.supplant(dep));
+            });
 
         vfs.src(newGlobs, options)
             .on('data', this.push.bind(this))
