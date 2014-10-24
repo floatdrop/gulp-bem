@@ -30,15 +30,13 @@ Take a look at [getbem.com](https://getbem.com/) as example of full-featured web
 
 ### bem(levels, [options])
 
-Creates function, that used for resolving dependencies in BEM project.
+Creates function, that used for resolving dependencies in BEM project. Returns [`deps` function](https://github.com/floatdrop/deps-graph/tree/1.0#depsbem).
 
 #### levels
 Type: `Array` or `String`  
 Default: `process.cwd()`
 
 Contains array of [Levels](http://getbem.com/building). They will be used in searching for requested blocks and ordering blocks with same names in different levels.
-
-Returns [`deps` function](#deps-function).
 
 #### options
 Type: `Object`
@@ -55,17 +53,6 @@ All files, that contained under BEM object path, following some convention about
 Type: `String` or `Array`  
 
 Same as in [gulp.src](https://github.com/gulpjs/gulp/blob/master/docs/API.md#gulpsrcglobs-options) method, but with some interpolation happening. To provide BEM name generation - `bem.src` will substitute (with [supplant](http://javascript.crockford.com/remedial.html) syntax) all properties in BEM object.
-
-## Deps function
-This function is used to get linearized dependency for `block`.
-
-### deps(block, [parents])
-Returns Stream of [bem-objects](https://github.com/floatdrop/bem-object).
-
-#### parents
-Type: `Function` or `Array`
-
-If block is not found in levels, that was specified for `deps` funciton creation - parent functions will be queried for dependencies.
 
 ## Related
 
