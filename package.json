@@ -30,7 +30,7 @@
     "should": "^4.0.4"
   },
   "dependencies": {
-    "deps-graph": "^1.0.0",
+    "bem-deps": "0.0.5",
     "remedial": "^1.0.7",
     "through2": "^1.1.1",
     "vinyl-fs": "^0.3.6"

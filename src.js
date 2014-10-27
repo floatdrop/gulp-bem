@@ -1,10 +1,19 @@
 var through = require('through2');
 var vfs = require('vinyl-fs');
-var path = require('path');
+var join = require('path').join;
 
 require('remedial');
 
+function path(dep) {
+    var result = join(dep.level, dep.block);
+    if (dep.elem) { result = join(result, this.elemDelim + dep.elem); }
+    if (dep.mod) { result = join(result, this.modDelim + dep.mod); }
+    return result;
+}
+
 function src(glob, options) {
+    var self = this;
+
     if (!isValidGlob(glob)) {
         throw new Error('Invalid glob argument: ' + glob);
     }
@@ -14,7 +23,7 @@ function src(glob, options) {
     function findFile(dep, enc, cb) {
         var newGlobs = glob
             .map(function (str) {
-                return path.join(dep.path, str.supplant(dep));
+                return join(path.call(self, dep), str.supplant(dep));
             });
 
         vfs.src(newGlobs, options)

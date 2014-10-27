@@ -1,12 +1,10 @@
-var graph = require('deps-graph');
+var bemDeps = require('bem-deps');
 
 var BEM = function(levels, options) {
     options = options || {};
 
-    this._options = options;
-
-    this._options.elem = options.elem || '__';
-    this._options.mod = options.mod || '_';
+    this.elemDelim = options.elem || '__';
+    this.modDelim = options.mod || '_';
 
     function stringsArray(array) {
         return array.reduce(function (prev, value) {
@@ -18,9 +16,9 @@ var BEM = function(levels, options) {
         throw new Error('Invalid levels: expected to be string or array of strings, but got ' + levels + ' (' + (typeof levels) + ')');
     }
 
-    return graph(levels);
+    return bemDeps(levels, options);
 };
 
-BEM.prototype.src = require('./src.js');
+BEM.src = require('./src.js');
 
 module.exports = BEM;

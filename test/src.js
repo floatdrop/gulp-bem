@@ -4,7 +4,7 @@ var src = require('../src.js');
 var path = require('path');
 require('should');
 
-var simpleBundle = path.join(__dirname, 'fixtures/single.bundle/index');
+var singleBundle = 'test/fixtures/single.bundle';
 
 describe('bem.src', function () {
     it('should throw on invalid glob', function () {
@@ -26,7 +26,10 @@ describe('bem.src', function () {
             done();
         });
         stream.on('error', done);
-        stream.write({ path: simpleBundle });
+        stream.write({
+            level: singleBundle,
+            block: 'index'
+        });
     });
 
     it('should interpolate dep object properties', function (done) {
@@ -37,7 +40,7 @@ describe('bem.src', function () {
         });
         stream.on('error', done);
         stream.write({
-            path: simpleBundle,
+            level: singleBundle,
             block: 'index'
         });
     });
