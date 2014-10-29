@@ -1,11 +1,6 @@
 var bemDeps = require('bem-deps');
 
 var BEM = function(levels, options) {
-    options = options || {};
-
-    this.elemDelim = options.elem || '__';
-    this.modDelim = options.mod || '_';
-
     function stringsArray(array) {
         return array.reduce(function (prev, value) {
             return prev && typeof value === 'string';

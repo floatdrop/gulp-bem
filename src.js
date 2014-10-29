@@ -4,10 +4,12 @@ var join = require('path').join;
 
 require('remedial');
 
-function path(dep) {
+function path(dep, options) {
+    options = options || {};
+
     var result = join(dep.level, dep.block);
-    if (dep.elem) { result = join(result, this.elemDelim + dep.elem); }
-    if (dep.mod) { result = join(result, this.modDelim + dep.mod); }
+    if (dep.elem) { result = join(result, (options.elem || '__') + dep.elem); }
+    if (dep.mod) { result = join(result, (options.mod || '_') + dep.mod); }
     return result;
 }
 
@@ -23,7 +25,7 @@ function src(glob, options) {
     function findFile(dep, enc, cb) {
         var newGlobs = glob
             .map(function (str) {
-                return join(path.call(self, dep), str.supplant(dep));
+                return join(path.call(self, dep, options), str.supplant(dep));
             });
 
         vfs.src(newGlobs, options)
