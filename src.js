@@ -9,7 +9,7 @@ function path(dep, options) {
 
     var result = join(dep.level, dep.block);
     if (dep.elem) { result = join(result, (options.elem || '__') + dep.elem); }
-    if (dep.mod) { result = join(result, (options.mod || '_') + dep.mod); }
+    if (dep.modName) { result = join(result, (options.mod || '_') + dep.modName); }
     return result;
 }
 
