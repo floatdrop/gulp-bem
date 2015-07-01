@@ -24,6 +24,7 @@
   "homepage": "https://github.com/floatdrop/gulp-bem",
   "devDependencies": {
     "coveralls": "^2.7.0",
+    "gulp-concat": "^2.6.0",
     "istanbul": "^0.3.0",
     "mocha": "^2.0.1",
     "mocha-lcov-reporter": "^0.0.1",

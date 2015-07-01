@@ -44,4 +44,18 @@ describe('bem.src', function () {
             block: 'index'
         });
     });
+
+    it('should work with mods', function (done) {
+        var stream = src('*.css');
+        stream.on('data', function (css) {
+            path.basename(css.path).should.eql('index_mod_yes.css');
+            done();
+        });
+        stream.on('error', done);
+        stream.write({
+            level: singleBundle,
+            block: 'index',
+            modName: 'mod'
+        });
+    });
 });
