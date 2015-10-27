@@ -30,7 +30,7 @@ Take a look at [getbem.com](https://getbem.com/) as example of full-featured web
 
 ### bem(levels, [options])
 
-Creates function, that used for resolving dependencies in BEM project. Returns [`deps` function](https://github.com/floatdrop/deps-graph/tree/1.0#depsbem).
+Creates function, that used for resolving dependencies in BEM project. Returns [`deps` function](https://github.com/floatdrop/deps-graph#depsgraphdepsbem).
 
 #### levels
 Type: `Array` or `String`  
