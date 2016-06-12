@@ -24,7 +24,7 @@ tree.deps('blocks/page')
 
 Pretty easy, eh, mate?
 
-Take a look at [getbem.com](https://getbem.com/) as example of full-featured web site created with BEM and [gulp-bem-stub](https://github.com/matmuchrapna/gulp-bem-stub) as starting template for projects!
+Take a look at [getbem.com](http://getbem.com/) as example of full-featured web site created with BEM and [gulp-bem-stub](https://github.com/matmuchrapna/gulp-bem-stub) as starting template for projects!
 
 ## API
 
